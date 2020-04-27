@@ -20,35 +20,39 @@
         <router-link
           @mouseenter.native="enter"
           @mouseleave.native="leave"
-          :class="{'active':active == 1 ? true:false}"
+          :class="{ active: active == 1 ? true : false }"
           data-index="1"
           tag="li"
           to="/overwatch"
-        >守望先锋</router-link>
+          >守望先锋</router-link
+        >
         <router-link
           @mouseenter.native="enter"
           @mouseleave.native="leave"
-          :class="{'active':active == 2 ? true:false}"
+          :class="{ active: active == 2 ? true : false }"
           data-index="2"
           tag="li"
           to="/apex"
-        >Apex英雄</router-link>
+          >Apex英雄</router-link
+        >
         <router-link
           @mouseenter.native="enter"
           @mouseleave.native="leave"
-          :class="{'active':active == 3 ? true:false}"
+          :class="{ active: active == 3 ? true : false }"
           data-index="3"
           tag="li"
           to="/pubg"
-        >绝地求生</router-link>
+          >绝地求生</router-link
+        >
         <router-link
           @mouseenter.native="enter"
           @mouseleave.native="leave"
-          :class="{'active':active == 4 ? true:false}"
+          :class="{ active: active == 4 ? true : false }"
           data-index="4"
           tag="li"
           to="/mine"
-        >个人中心</router-link>
+          >个人中心</router-link
+        >
       </ul>
     </el-col>
     <el-col :span="7">
@@ -94,5 +98,4 @@ export default {
   activated() {} //如果页面有keep-alive缓存功能，这个函数会触发
 };
 </script>
-<style lang='scss' scoped>
-</style>
+<style lang="scss" scoped></style>

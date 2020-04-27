@@ -1,12 +1,5 @@
 <!--  -->
-<template>
-  <div class="footer">
-      <span class="copyright">
-          Copyright 2020 <a href="http://www.beian.miit.gov.cn/">京ICP备20009530号</a>
-          <a href="#">免责声明</a>
-      </span>
-  </div>
-</template>
+<template> </template>
 
 <script>
 export default {
@@ -31,14 +24,4 @@ export default {
   activated() {} //如果页面有keep-alive缓存功能，这个函数会触发
 };
 </script>
-<style lang='scss' scoped>
-.footer{
-  .copyright{
-    a{
-      margin: 0 20px;
-      color:#fff;
-      text-decoration: none;
-    }
-  }
-}
-</style>
+<style lang="scss" scoped></style>

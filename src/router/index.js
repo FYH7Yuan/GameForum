@@ -1,18 +1,35 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import Home from '@/views/Home'
+import Home from "@/views/Home";
 
 Vue.use(VueRouter);
 
-const routes = [{
-    path: "/",
-    name: "Home",
-    component: Home,
+const routes = [
+  {
+    path: "/Home",
+    name: "home",
+    component: Home
+  },
+
+  {
+    path: "/overwatch",
+    name: "overwatch",
+    component: () => import("@/views/Overwatch.vue")
   },
   {
-    path: '/hero',
-    name: 'hero',
-    component: () => import('@/views/Overwatch.vue')
+    path: "/",
+    name: "Home",
+    component: Home
+  },
+  {
+    path: "/",
+    name: "Home",
+    component: Home
+  },
+  {
+    path: "/",
+    name: "Home",
+    component: Home
   }
 ];
 

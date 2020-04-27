@@ -1,7 +1,8 @@
 <!--  -->
 <template>
-  <div class="news"><img :src="news.cover" alt="">
-      {{news.title}} 
+  <div class="news">
+    <img :src="news.cover" alt="" />
+    {{ news.title }}
   </div>
 </template>
 <script>
@@ -15,9 +16,9 @@ export default {
   watch: {},
   methods: {},
   props: {
-    news:{
-        type:Object,
-        required:true
+    news: {
+      type: Object,
+      required: true
     }
   },
   //生命周期 - 创建完成（可以访问当前this实例）
@@ -33,5 +34,4 @@ export default {
   activated() {} //如果页面有keep-alive缓存功能，这个函数会触发
 };
 </script>
-<style lang='scss' scoped>
-</style>
+<style lang="scss" scoped></style>

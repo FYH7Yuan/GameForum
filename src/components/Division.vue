@@ -31,7 +31,7 @@ export default {
   activated() {} //如果页面有keep-alive缓存功能，这个函数会触发
 };
 </script>
-<style lang='scss' scoped>
+<style lang="scss" scoped>
 .division {
   height: 80px;
   width: 100%;
@@ -41,14 +41,14 @@ export default {
   box-sizing: border-box;
   .line {
     position: absolute;
-    top:40px;
+    top: 40px;
     width: 40%;
     border: 1px solid black;
-    &-left{
-      left:0;
+    &-left {
+      left: 0;
     }
-    &-right{
-      right:0
+    &-right {
+      right: 0;
     }
   }
   img {

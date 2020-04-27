@@ -1,127 +1,316 @@
-<!--  -->
 <template>
-  <el-container class="m-home">
-    <el-header class="el-reset header" style="height:100px">
-      <m-header />
-    </el-header>
-    <el-main class="el-reset main">
-      <router-view />
-    </el-main>
-    <el-footer class="el-reset">
-      <m-footer></m-footer>
-    </el-footer>
-  </el-container>
-</template>
+  <div id="app">
+    <div class="header">
+      <ul class="nav">
+        <div class="header-left">
+          <router-link tag="li" to="/Home">
+            <img class="logo-img" src="@/assets/img/logo-white.png" alt />
+          </router-link>
+        </div>
+        <div class="header-middle">
+          <router-link
+            tag="li"
+            to="/overwatch"
+            @mouseenter.native="enter"
+            @mouseleave.native="leave"
+            :class="{ active: active == 1 ? true : false }"
+            data-index="1"
+            >守望先锋
+          </router-link>
 
+          <router-link
+            tag="li"
+            to="/Communication"
+            @mouseenter.native="enter"
+            @mouseleave.native="leave"
+            :class="{ active: active == 2 ? true : false }"
+            data-index="2"
+            >Apex英雄</router-link
+          >
+          <router-link
+            tag="li"
+            to="/Personalcenter"
+            @mouseenter.native="enter"
+            @mouseleave.native="leave"
+            :class="{ active: active == 3 ? true : false }"
+            data-index="3"
+            >绝地求生</router-link
+          >
+          <router-link
+            tag="li"
+            to="/list"
+            @mouseenter.native="enter"
+            @mouseleave.native="leave"
+            :class="{ active: active == 4 ? true : false }"
+            data-index="4"
+            >个人中心</router-link
+          >
+        </div>
+        <div class="header-right" v-show="!userNamee">
+          <router-link tag="li" to="/Adminster">登录/注册</router-link>
+        </div>
+        <!--        <div class="header-right" v-show="userNamee">-->
+        <!--          <li>欢迎</li>-->
+        <!--        </div>-->
+      </ul>
+    </div>
+    <div class="home">
+      <div class="header-navi">
+        <SecondHeader/>
+      </div>
+    </div>
+
+    <router-view></router-view>
+
+    <div class="footer">
+      <div class="footer-q">
+        <div class="footer-qone">
+          <p>
+            <a href="">网页简介</a>
+            <span>|</span>
+            <a href="">公司背景</a>
+            <span>|</span>
+            <a href="">网站导航</a>
+            <span>|</span>
+            <a href="">客服电话</a>
+            <span>|</span>
+            <a href="">帮助中心</a>
+            <span>|</span>
+            <a href="">作者求助</a>
+          </p>
+        </div>
+        <div class="footer-qtwo">
+          <p>
+            个人版权所有©2020-<span id="j-year">2020</span>
+            &nbsp;&nbsp;网络出版服务许可证（总）网出证（粤）字第xxx号
+            &nbsp;&nbsp;信息网络传播视听节目许可证号00000000
+            &nbsp;&nbsp;增值电信业务经营许可证 00-00000000
+          </p>
+        </div>
+        <div class="footer-qthree"></div>
+        <div class="footer-qfour">违法和不良信息举报电话：010-82558163</div>
+      </div>
+    </div>
+  </div>
+</template>
 <script>
-import MHeader from "@/views/Header.vue";
-import MFooter from "@/views/Footer.vue";
+    import SecondHeader   from '@/components/SecondHeader'
 export default {
+
+  name: "Personalcenter",
   components: {
-    MHeader,
-    MFooter,
+      SecondHeader,
   },
   data() {
     return {
+      active: -1,
+      show: null
     };
   },
   computed: {},
   //监控data中的数据变化
   watch: {},
-  methods: {},
-  //生命周期 - 创建完成（可以访问当前this实例）
-  created() {},
-  //生命周期 - 挂载完成（可以访问DOM元素）
-  mounted() {},
-  beforeCreate() {}, //生命周期 - 创建之前
-  beforeMount() {}, //生命周期 - 挂载之前
-  beforeUpdate() {}, //生命周期 - 更新之前
-  updated() {}, //生命周期 - 更新之后
-  beforeDestroy() {}, //生命周期 - 销毁之前
-  destroyed() {}, //生命周期 - 销毁完成
-  activated() {} //如果页面有keep-alive缓存功能，这个函数会触发
+  methods: {
+    enter(e) {
+      const index = e.target.dataset.index;
+      this.active = index;
+    },
+    leave() {
+      this.active = -1;
+    }
+  }
 };
+// document.addEventListener('DOMContentLoaded', () => {
+//   let fontSize = window.innerWidth / 10
+//   fontSize = fontSize > 50 ? 50 : fontSize
+//   const html = document.querySelector('html')
+//   html.style.fontSize = fontSize + 'px'
+// })
 </script>
-<style lang='scss'>
-$blue: #0084ff;
-$blue-darker: darken($blue, 5);
-$bg-gray: #343b41;
+<style lang="scss" >
+@import "./assets/styles/global.scss";
 
-.m-home {
-  .header {
-    height: 100px !important;
-    width: 100%;
-    background-color: #000;
-    position: relative;
-    .logo {
-      height: 100px;
+* {
+  box-sizing: border-box;
+}
+
+body,
+html {
+  height: 100%;
+  width: 100%;
+}
+
+#app {
+  min-width: 950px;
+}
+.home{
+    width: 980px;
+    margin: 0 auto;
+    margin-bottom: 12px;
+}
+.logo-img {
+  width: 120px;
+  height: 80px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  background-color: #0a060a;
+  line-height: 70px;
+
+  padding-bottom: 2px;
+  color: #fff;
+}
+
+.nav {
+  width: 1200px;
+
+  margin: 0 auto;
+}
+
+.nav div {
+  display: flex;
+  float: left;
+}
+
+.nav .header-right {
+  display: flex;
+  float: right;
+  border: 1px solid #3086f2;
+  padding: 0 14px;
+  margin: 17px 0px 15px 0px;
+  line-height: 40px;
+  font-size: 14px;
+  width: 120px;
+  padding: 0 14px;
+  box-sizing: border-box;
+}
+
+.header-left {
+  margin: 0px 73px 0px 17px;
+}
+
+.header-left li {
+  display: flex;
+  float: left;
+}
+
+/*.header-left img{*/
+/*  width: 50px;*/
+
+/*}*/
+.logo {
+  color: black;
+  font-size: 25px;
+  padding: 0 0 0 20px;
+}
+
+.header-right li {
+  display: inline-block;
+  text-align: center;
+  width: 92px;
+  height: 40px;
+  color: #248aff;
+}
+
+.header-middle {
+  li {
+    margin: 0 38px;
+    cursor: pointer;
+
+    &::after {
+      position: relative;
+      top: -4px;
+      content: "";
+      display: block;
+      transition: all 0.8s;
+      height: 3px;
+      width: 0px;
+      bottom: 10px;
+      left: -5px;
+      border-bottom: 3px solid #f7931e;
+      border-radius: 3px;
+    }
+    &.active::after {
       width: 100px;
-      color: #fff;
-      cursor: pointer;
-      margin-left: 160px;
-      .logo-img {
-        width: 100%;
-        height: 100%;
-      }
-    }
-    .menulist {
-      line-height: 100px;
-      li {
-        display: inline-block;
-        padding: 0 10px;
-        margin: 0 20px;
-        color: #fff;
-        cursor: pointer;
-        position: relative;
-        &::after {
-          position: absolute;
-          content: "";
-          display: block;
-          transition: all 0.8s;
-          height: 3px;
-          width: 0px;
-          bottom: 10px;
-          left: -5px;
-          border-bottom: 3px solid #f7931e;
-          border-radius: 3px;
-        }
-        &.active::after {
-          width: 100px;
-        }
-      }
-    }
-    .info {
-      line-height: 100px;
-      height: 100px;
-      .register {
-        margin-left: 150px;
-        margin-right: 20px;
-      }
-      .login{
-        background-color: #DA292A;
-        border-color: #DA292A;
-      }
     }
   }
-  .main {
-    background-color: #e6e2d9;
-  }
-  .el-reset {
-    padding: 0;
-  }
-  .footer {
-    height: 100px;
-    position: relative;
-    background-color: #000;
-    text-align: center;
-    .copyright {
-      color: #fff;
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      margin: 0 auto;
-    }
-  }
+}
+
+.header-middle li.router-link-active {
+  /*color: #3086f2;*/
+  /*border-bottom: 2px #3086f2 solid;*/
+}
+
+.view {
+  padding: 50px 200px;
+}
+
+.router-link-exact-active {
+  color: #3086f2;
+  font-weight: bold;
+}
+
+.footer {
+  z-index: 300;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  background-color: #fafafa;
+  border-top: 1px solid #eee;
+  /* margin-top: 40px; */
+  width: 100%;
+}
+
+.footer-q {
+  width: 980px;
+  margin: 0 auto;
+  padding: 40px 0 50px;
+}
+
+.footer-qone {
+  white-space: nowrap;
+  text-align: center;
+}
+
+.footer-qone p {
+  font-size: 12px;
+  white-space: nowrap;
+  text-align: center;
+}
+
+.footer-qone span {
+  margin: 0 6px;
+  color: #ccc;
+}
+
+.footer-qtwo {
+  clear: both;
+  padding: 18px 0 0;
+  font-size: 12px;
+}
+
+.footer-qtwo p {
+  text-align: center;
+  color: #888;
+}
+
+.footer-qthree {
+  width: 980px;
+  height: 0px;
+  border-bottom: 1.5px solid rgb(27, 23, 23);
+  opacity: 0.1;
+  padding-top: 32px;
+}
+
+.footer-qfour {
+  text-align: center;
+  font-size: 14px;
+  height: 20px;
+  padding-top: 32px;
+  opacity: 0.6;
+  margin: 0 auto;
 }
 </style>
