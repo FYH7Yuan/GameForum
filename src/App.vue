@@ -46,7 +46,7 @@
             >个人中心</router-link
           >
         </div>
-        <div class="header-right" v-show="!userNamee">
+        <div class="header-right">
           <router-link tag="li" to="/Adminster">登录/注册</router-link>
         </div>
         <!--        <div class="header-right" v-show="userNamee">-->
@@ -54,7 +54,8 @@
         <!--        </div>-->
       </ul>
     </div>
-    <div class="home">
+
+    <div class="home"  >
       <div class="header-navi">
         <SecondHeader/>
       </div>

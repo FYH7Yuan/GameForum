@@ -1,5 +1,6 @@
 <template>
-    <div class="_headerC">
+    <transition>
+    <div class="_headerC" v-show="this.$store.state.TitleVisible">
         <div class="_headerCo">
             <p>
                 <a href="">1</a>
@@ -43,10 +44,22 @@
             </p>
         </div>
     </div>
-
+    </transition>
 </template>
 
 <style lang="scss" scoped>
+        .v-enter-active,.v-leave-active{
+            transition:all 1.3s;
+        }
+        .v-enter,.v-leave-to{
+            height:  0px;
+        }
+        .v-enter-to,.v-leave{
+            height: 114px;
+        }
+
+
+
     ._headerCo p {
         box-sizing: border-box;
         text-align: center;

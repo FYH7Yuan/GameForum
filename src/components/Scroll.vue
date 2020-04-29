@@ -41,6 +41,15 @@ export default {
       const offsetY =
         e.target.scrollTop || window.pageYOffset || document.body.scrollTop;
       this.$emit("onScroll", offsetY);
+      console.log(this.$store.state.TitleVisible)
+
+      if(offsetY>0){
+        this.$store.state.TitleVisible= false;
+      }else{
+        this.$store.state.TitleVisible= true;
+      }
+
+
     },
     scrollTo(x, y) {
       this.$refs.scrollWrapper.scrollTo(x, y);
@@ -54,13 +63,16 @@ export default {
     }
   },
   mounted() {
+
     this.refresh();
+
     this.$nextTick(() => {
       setTimeout(() => {
         this.scrollTo(realPx(this.initPosition.x), realPx(this.initPosition.y));
       }, 1);
     });
   }
+
 };
 </script>
 
@@ -68,6 +80,7 @@ export default {
 @import "../assets/styles/global";
 
 .scroll-wrapper {
+  height: 900px!important;
   position: relative;
   z-index: 100;
   width: 100%;
