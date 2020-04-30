@@ -47,7 +47,9 @@
           >
         </div>
         <div class="header-right">
-          <router-link tag="li" to="/Adminster">登录/注册</router-link>
+          <router-link tag="li" to="/Adminster">登录</router-link>
+
+          <router-link tag="li" to="/Adminster">注册</router-link>
         </div>
         <!--        <div class="header-right" v-show="userNamee">-->
         <!--          <li>欢迎</li>-->
@@ -177,18 +179,35 @@ html {
 }
 
 .nav .header-right {
+
   display: flex;
   float: right;
-  border: 1px solid #3086f2;
-  padding: 0 14px;
+  /*border: 1px solid #3086f2;*/
+
   margin: 17px 0px 15px 0px;
   line-height: 40px;
   font-size: 14px;
-  width: 120px;
-  padding: 0 14px;
-  box-sizing: border-box;
-}
+  width: 150px;
 
+  box-sizing: border-box;
+
+  li:first-child{
+    border: 1px solid #3086f2;
+    margin-right: 20px;
+  }
+  li:last-child{
+    background-color: chocolate;
+    margin-right: 20px;
+  }
+
+
+}
+.header-right:nth-child(1){
+  border: 1px solid #3086f2;
+  color: #999999;
+  height: 100px;
+  width: 100px;
+}
 .header-left {
   margin: 0px 73px 0px 17px;
 }

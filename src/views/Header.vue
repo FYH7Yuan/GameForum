@@ -9,14 +9,7 @@
     </el-col>
     <el-col :span="12">
       <ul class="menulist">
-        <!-- <router-link
-          @mouseenter.native="enter"
-          @mouseleave.native="leave"
-          :class="{'active':active == 0 ? true:false}"
-          data-index="0"
-          tag="li"
-          to="/"
-        >首页</router-link> -->
+
         <router-link
           @mouseenter.native="enter"
           @mouseleave.native="leave"
