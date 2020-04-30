@@ -30,6 +30,11 @@ const routes = [
     path: "/",
     name: "Home",
     component: Home
+  },
+  {
+    path: "/Detail/:id",
+    name: "Detail",
+    component: () => import("../components/Detail")
   }
 ];
 
