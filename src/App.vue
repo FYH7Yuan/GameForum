@@ -171,56 +171,76 @@ html {
   width: 1200px;
 
   margin: 0 auto;
-}
+  div {
+    display: flex;
+    float: left;
 
-.nav div {
-  display: flex;
-  float: left;
-}
-
-.nav .header-right {
-
-  display: flex;
-  float: right;
-  /*border: 1px solid #3086f2;*/
-
-  margin: 17px 0px 15px 0px;
-  line-height: 40px;
-  font-size: 14px;
-  width: 150px;
-
-  box-sizing: border-box;
-
-  li:first-child{
-    border: 1px solid #3086f2;
-    margin-right: 20px;
   }
-  li:last-child{
-    background-color: chocolate;
-    margin-right: 20px;
+  .header-left {
+    margin: 0px 73px 0px 17px;
+    li{
+      display: flex;
+      float: left;
+    }
   }
+  .header-right {
+
+    display: flex;
+    float: right;
+    /*border: 1px solid #3086f2;*/
+
+    margin: 17px 0px 15px 0px;
+    line-height: 40px;
+    font-size: 14px;
+    width: 150px;
+
+    box-sizing: border-box;
+    li{
+      display: inline-block;
+      line-height: 1;
+      white-space: nowrap;
+      cursor: pointer;
+      background: #FFF;
+      border: 1px solid #DCDFE6;
+      color: #606266;
+      -webkit-appearance: none;
+      text-align: center;
+      -webkit-box-sizing: border-box;
+      box-sizing: border-box;
+      outline: 0;
+      margin: 0;
+      -webkit-transition: .1s;
+      transition: .1s;
+      font-weight: 500;
+      padding: 12px 20px;
+      font-size: 14px;
+      border-radius: 4px;
+    }
+    li:first-child{
+      color: #FFF;
+      background-color: #409EFF;
+      border-color: #409EFF;
+      margin-right: 20px;
+    }
+    li:last-child{
+      color: #FFF;
+      background-color: #67C23A;
+      border-color: #67C23A;
+    }
 
 
+  }
 }
-.header-right:nth-child(1){
-  border: 1px solid #3086f2;
-  color: #999999;
-  height: 100px;
-  width: 100px;
-}
-.header-left {
-  margin: 0px 73px 0px 17px;
-}
 
-.header-left li {
-  display: flex;
-  float: left;
-}
 
-/*.header-left img{*/
-/*  width: 50px;*/
 
-/*}*/
+
+
+
+
+
+
+
 .logo {
   color: black;
   font-size: 25px;
@@ -228,11 +248,11 @@ html {
 }
 
 .header-right li {
-  display: inline-block;
-  text-align: center;
-  width: 92px;
-  height: 40px;
-  color: #248aff;
+  /*display: inline-block;*/
+  /*text-align: center;*/
+  /*width: 92px;*/
+  /*height: 40px;*/
+  /*color: #248aff;*/
 }
 
 .header-middle {
