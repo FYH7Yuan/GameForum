@@ -41,7 +41,7 @@ export default {
       const offsetY =
         e.target.scrollTop || window.pageYOffset || document.body.scrollTop;
       this.$emit("onScroll", offsetY);
-      console.log(this.$store.state.TitleVisible)
+      // console.log(this.$store.state.TitleVisible)
 
       if(offsetY>0){
         this.$store.state.TitleVisible= false;

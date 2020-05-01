@@ -17,19 +17,13 @@ const routes = [
     component: () => import("@/views/Overwatch.vue")
   },
   {
-    path: "/",
-    name: "Home",
-    component: Home
+    path: "/register",
+    name: "register",
+    component: ()=>import("@/views/Register")
   },
   {
     path: "/",
-    name: "Home",
-    component: Home
-  },
-  {
-    path: "/",
-    name: "Home",
-    component: Home
+    redirect:{name:'home'}
   },
   {
     path: "/Detail/:id",

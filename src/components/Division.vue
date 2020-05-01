@@ -3,7 +3,7 @@
   <div class="division">
     <div class="line line-left"></div>
     <div class="line line-right"></div>
-    <img src="@/assets/img/logo-black-big.png" />
+    <img class="divisionLogo" src="@/assets/img/logo-black-big.png" />
   </div>
 </template>
 
@@ -44,6 +44,8 @@ export default {
     top: 40px;
     width: 40%;
     border: 1px solid black;
+    background-color: #000;
+    border-radius: 50%;
     &-left {
       left: 0;
     }
@@ -51,9 +53,9 @@ export default {
       right: 0;
     }
   }
-  img {
-    height: 80px;
-    width: 80px;
+  .divisionLogo {
+    // height: 80px;
+    width: 120px;
     padding: 0 20px;
   }
 }
