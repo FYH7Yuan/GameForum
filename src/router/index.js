@@ -17,9 +17,9 @@ const routes = [
     component: () => import("@/views/Overwatch.vue")
   },
   {
-    path: "/",
-    name: "Home",
-    component: Home
+    path: "/PUBG",
+    name: "PUBG",
+    component: () => import("@/views/PUBG.vue")
   },
   {
     path: "/",
@@ -35,6 +35,11 @@ const routes = [
     path: "/Detail/:id",
     name: "Detail",
     component: () => import("../components/Detail")
+  },
+  {
+    path: "/contribute",
+    name: "contribute",
+    component: () => import("@/views/contribute.vue")
   }
 ];
 

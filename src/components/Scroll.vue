@@ -57,7 +57,7 @@ export default {
     refresh() {
       if (this.$refs.scrollWrapper) {
         this.$refs.scrollWrapper.style.height =
-          window.innerHeight - realPx(this.top) - realPx(this.bottom) + "px";
+          window.innerHeight - realPx(this.top) - realPx(this.bottom) + "px" - (82+'px');
         this.$refs.scrollWrapper.addEventListener("scroll", this.handleScroll);
       }
     }
@@ -80,7 +80,7 @@ export default {
 @import "../assets/styles/global";
 
 .scroll-wrapper {
-  height: 900px!important;
+  height: 1090px;
   position: relative;
   z-index: 100;
   width: 100%;

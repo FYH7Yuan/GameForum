@@ -29,7 +29,7 @@
           >
           <router-link
             tag="li"
-            to="/Personalcenter"
+            to="/PUBG"
             @mouseenter.native="enter"
             @mouseleave.native="leave"
             :class="{ active: active == 3 ? true : false }"
@@ -65,35 +65,7 @@
 
     <router-view></router-view>
 
-    <div class="footer">
-      <div class="footer-q">
-        <div class="footer-qone">
-          <p>
-            <a href="">网页简介</a>
-            <span>|</span>
-            <a href="">公司背景</a>
-            <span>|</span>
-            <a href="">网站导航</a>
-            <span>|</span>
-            <a href="">客服电话</a>
-            <span>|</span>
-            <a href="">帮助中心</a>
-            <span>|</span>
-            <a href="">作者求助</a>
-          </p>
-        </div>
-        <div class="footer-qtwo">
-          <p>
-            个人版权所有©2020-<span id="j-year">2020</span>
-            &nbsp;&nbsp;网络出版服务许可证（总）网出证（粤）字第xxx号
-            &nbsp;&nbsp;信息网络传播视听节目许可证号00000000
-            &nbsp;&nbsp;增值电信业务经营许可证 00-00000000
-          </p>
-        </div>
-        <div class="footer-qthree"></div>
-        <div class="footer-qfour">违法和不良信息举报电话：010-82558163</div>
-      </div>
-    </div>
+
   </div>
 </template>
 <script>
@@ -294,8 +266,9 @@ html {
 }
 
 .footer {
+
   z-index: 300;
-  position: absolute;
+  /*position: absolute;*/
   left: 0;
   bottom: 0;
   background-color: #fafafa;
