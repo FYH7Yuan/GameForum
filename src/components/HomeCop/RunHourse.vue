@@ -13,12 +13,11 @@
 }
 .el-carousel__item img {
   width: 100%;
-min-height: 380px;
+  min-height: 380px;
   min-width: 1400px;
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
-
 }
 
 .el-carousel__item:nth-child(2n) {
@@ -38,7 +37,8 @@ export default {
       runImg: [
         {
           id: `001`,
-          imgUrl:"https://static.iyingdi.cn/common/2020/04/24/b4547812-03c9-41ac-8891-4391e31c0cf2.jpg"
+          imgUrl:
+            "https://static.iyingdi.cn/common/2020/04/24/b4547812-03c9-41ac-8891-4391e31c0cf2.jpg"
         },
         {
           id: `002`,

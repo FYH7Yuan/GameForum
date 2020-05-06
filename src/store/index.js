@@ -1,18 +1,20 @@
 import Vue from "vue";
 import Vuex from "vuex";
+import getters from './getters'
+import actions from './actions'
+
 import store from "@/store/module/store";
 Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    TitleVisible:true,
+    TitleVisible: true,
+    isShowLogin: false
   },
-  mutations: {},
-  actions: {},
+
   modules: {
     store,
-  }
+  },
+  getters,
+  actions,
 });
-
-
-

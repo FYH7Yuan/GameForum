@@ -1,29 +1,33 @@
+const store = {
+  state: {
+    demoValue: {},
+    FileIVisible: false,
+    FileIIVisible: false,
+    FileIIIVisible: false,
+    FileIVVisible: false,
 
+  },
 
-export default {
+  getters: {},
 
-    state: {
-
-        demoValue:{}
-
+  mutations: {
+    setDemoValue(state, demoValue) {
+      state.demoValue = demoValue;
     },
 
-    getters: {
-
-
-
+    SET_FILE_I_VISIBLE(state, visible) {
+      state.FileIVisible = visible;
     },
+    SET_FILE_II_VISIBLE(state, visible) {
+      state.FileIVisible = visible;
+    },
+    SET_FILE_III_VISIBLE(state, visible) {
+      state.FileIVisible = visible;
+    },
+    SET_FILE_IV_VISIBLE(state, visible) {
+      state.FileIVisible = visible;
+    },
+  }
+};
 
-    mutations: {
-
-        //set方法
-
-        setDemoValue(state,demoValue){
-
-            state.demoValue = demoValue
-
-        }
-
-    }
-
-}
+export default store;

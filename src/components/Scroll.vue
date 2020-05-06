@@ -41,15 +41,13 @@ export default {
       const offsetY =
         e.target.scrollTop || window.pageYOffset || document.body.scrollTop;
       this.$emit("onScroll", offsetY);
-      console.log(this.$store.state.TitleVisible)
+      // console.log(this.$store.state.TitleVisible)
 
-      if(offsetY>0){
-        this.$store.state.TitleVisible= false;
-      }else{
-        this.$store.state.TitleVisible= true;
+      if (offsetY > 0) {
+        this.$store.state.TitleVisible = false;
+      } else {
+        this.$store.state.TitleVisible = true;
       }
-
-
     },
     scrollTo(x, y) {
       this.$refs.scrollWrapper.scrollTo(x, y);
@@ -57,13 +55,16 @@ export default {
     refresh() {
       if (this.$refs.scrollWrapper) {
         this.$refs.scrollWrapper.style.height =
-          window.innerHeight - realPx(this.top) - realPx(this.bottom) + "px" - (82+'px');
+          window.innerHeight -
+          realPx(this.top) -
+          realPx(this.bottom) +
+          "px" -
+          (82 + "px");
         this.$refs.scrollWrapper.addEventListener("scroll", this.handleScroll);
       }
     }
   },
   mounted() {
-
     this.refresh();
 
     this.$nextTick(() => {
@@ -72,7 +73,6 @@ export default {
       }, 1);
     });
   }
-
 };
 </script>
 
