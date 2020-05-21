@@ -10,8 +10,7 @@
 </template>
 
 <script>
-import { realPx } from "@/utils/utils";
-
+import util from "@/utils/utils";
 export default {
   props: {
     top: {
@@ -44,9 +43,11 @@ export default {
       // console.log(this.$store.state.TitleVisible)
 
       if(offsetY>0){
-        this.$store.state.TitleVisible= false;
+        // this.$store.state.TitleVisible= false;
+        this.$store.commit('changeTitleStatus',false)
       }else{
-        this.$store.state.TitleVisible= true;
+        // this.$store.state.TitleVisible= true;
+        this.$store.commit('changeTitleStatus',true)
       }
 
 
@@ -57,7 +58,7 @@ export default {
     refresh() {
       if (this.$refs.scrollWrapper) {
         this.$refs.scrollWrapper.style.height =
-          window.innerHeight - realPx(this.top) - realPx(this.bottom) + "px";
+          window.innerHeight - util.realPx(this.top) - util.realPx(this.bottom) + "px";
         this.$refs.scrollWrapper.addEventListener("scroll", this.handleScroll);
       }
     }
@@ -68,7 +69,7 @@ export default {
 
     this.$nextTick(() => {
       setTimeout(() => {
-        this.scrollTo(realPx(this.initPosition.x), realPx(this.initPosition.y));
+        this.scrollTo(util.realPx(this.initPosition.x), util.realPx(this.initPosition.y));
       }, 1);
     });
   }

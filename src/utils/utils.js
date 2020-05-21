@@ -1,9 +1,14 @@
-export function px2rem(px) {
+function px2rem(px) {
   const ratio = 375 / 10;
   return px / ratio;
 }
 
-export function realPx(px) {
+function realPx(px) {
   const maxWidth = window.innerWidth > 500 ? 500 : window.innerWidth;
   return px * (maxWidth / 375);
+}
+
+export default {
+  px2rem,
+  realPx
 }

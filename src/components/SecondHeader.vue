@@ -1,5 +1,5 @@
 <template>
-  <transition>
+  <transition name="secondHeader">
     <div class="_headerC" v-show="this.$store.state.TitleVisible">
       <div class="_headerCo">
         <p>
@@ -48,16 +48,16 @@
 </template>
 
 <style lang="scss" scoped>
-.v-enter-active,
-.v-leave-active {
+.secondHeader-enter-active,
+.secondHeader-leave-active {
   transition: all 1.3s;
 }
-.v-enter,
-.v-leave-to {
+.secondHeader-enter,
+.secondHeader-leave-to {
   height: 0px;
 }
-.v-enter-to,
-.v-leave {
+.secondHeader-enter-to,
+.secondHeader-leave {
   height: 114px;
 }
 

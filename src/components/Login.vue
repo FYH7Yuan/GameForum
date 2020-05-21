@@ -1,6 +1,6 @@
 <!--  -->
 <template>
-  <div class="wrapper" v-if="isShow">
+  <div class="wrapper" v-if="isShowLogin">
     <div class="mask" @click="closeLogin"></div>
     <div class="pop">
       <division style="margin-top:40px"></division>
@@ -22,6 +22,7 @@
 <script>
 import Division from "@/components/Division";
 import axios from "axios";
+import { mapState } from "vuex";
 export default {
   components: {
     Division
@@ -35,18 +36,13 @@ export default {
     };
   },
   computed: {
-    isShow: {
-      get() {
-        return this.$store.state.isShowLogin;
-      },
-      set() {}
-    }
+    ...mapState(["isShowLogin"])
   },
   //监控data中的数据变化
   watch: {},
   methods: {
     closeLogin() {
-      this.$store.state.isShowLogin = false;
+      this.$store.commit("changeLoginWindowStatus");
     },
     submitData() {
       const { username, password } = this;
@@ -57,7 +53,7 @@ export default {
         })
         .then(res => {
           const data = res.data.msg;
-          console.log(data)
+          console.log(data);
           if (data === "用户名不存在") {
             this.reset();
             this.nameErr = {
@@ -72,8 +68,10 @@ export default {
             };
           } else {
             this.reset();
-            this.$store.state.isShowLogin = false;
-            alert('登陆成功')
+            this.$store.commit("changeLoginWindowStatus");
+            sessionStorage.setItem('loginToken',res.data.token);
+            this.$store.commit("changeLoginStatus")
+            alert("登陆成功");
             this.$router.push({
               path: "/"
             });

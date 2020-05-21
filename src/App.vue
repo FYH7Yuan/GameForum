@@ -43,13 +43,17 @@
           >个人中心</router-link>
         </div>
         <div class="header-right">
-          <router-link tag="li" to="/Register">注册</router-link>
+          <router-link class="signbtn regBtn" v-if="!isLogin" tag="li" to="/Register">注册</router-link>
 
-          <li @click="showLogin">登陆</li>
+          <li class="signbtn loginBtn" v-if="!isLogin" @click="showLogin">登陆</li>
+          <li id="user-ctr" v-if="isLogin">
+            <img class="head-portrait" src="@/assets/img/backone.jpg" alt />
+            <ul>
+              <li>个人中心</li>
+              <li>退出登陆</li>
+            </ul>
+          </li>
         </div>
-        <!--        <div class="header-right" v-show="userNamee">-->
-        <!--          <li>欢迎</li>-->
-        <!--        </div>-->
       </ul>
     </div>
 
@@ -61,7 +65,7 @@
 
     <router-view></router-view>
 
-    <div class="footer">
+    <!-- <div class="footer">
       <div class="footer-q">
         <div class="footer-qone">
           <p>
@@ -90,13 +94,14 @@
         <div class="footer-qthree"></div>
         <div class="footer-qfour">违法和不良信息举报电话：010-82558163</div>
       </div>
-    </div>
+    </div>-->
     <m-login />
   </div>
 </template>
 <script>
 import SecondHeader from "@/components/SecondHeader";
 import MLogin from "@/components/Login";
+import { mapState } from "vuex";
 export default {
   name: "Personalcenter",
   components: {
@@ -107,10 +112,12 @@ export default {
     return {
       active: -1,
       show: null,
-      isShowLogin:false
+      isShowLogin: false
     };
   },
-  computed: {},
+  computed: {
+    ...mapState(["isLogin"])
+  },
   //监控data中的数据变化
   watch: {},
   methods: {
@@ -121,8 +128,8 @@ export default {
     leave() {
       this.active = -1;
     },
-    showLogin(){
-      this.$store.state.isShowLogin = true;
+    showLogin() {
+      this.$store.commit("changeLoginWindowStatus");
     }
   }
 };
@@ -199,7 +206,7 @@ html {
     width: 150px;
 
     box-sizing: border-box;
-    li {
+    li.signbtn {
       display: inline-block;
       line-height: 1;
       white-space: nowrap;
@@ -219,17 +226,17 @@ html {
       padding: 12px 20px;
       font-size: 14px;
       border-radius: 4px;
-    }
-    li:first-child {
-      color: #aaa;
-      background-color: #fff;
-      border-color: #fff;
-      margin-right: 20px;
-    }
-    li:last-child {
-      color: #fff;
-      background-color: $seaBlue;
-      border-color: $seaBlue;
+      &.regBtn {
+        color: #aaa;
+        background-color: #fff;
+        border-color: #fff;
+        margin-right: 20px;
+      }
+      &.loginBtn {
+        color: #fff;
+        background-color: $seaBlue;
+        border-color: $seaBlue;
+      }
     }
   }
 }
@@ -239,14 +246,6 @@ html {
   // font-size: 25px;
   // padding: 0 0 0 20px;
   cursor: pointer;
-}
-
-.header-right li {
-  /*display: inline-block;*/
-  /*text-align: center;*/
-  /*width: 92px;*/
-  /*height: 40px;*/
-  /*color: #248aff;*/
 }
 
 .header-middle {
